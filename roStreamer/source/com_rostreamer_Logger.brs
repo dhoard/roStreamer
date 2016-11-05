@@ -1,7 +1,7 @@
 '
+' Object to implement logging
 '
-'
-Function Logger(p_name As String, p_enabled As Boolean) As Object
+Function com_rostreamer_Logger(p_name As String, p_enabled As Boolean) As Object
 
     this = {
         name : p_name
@@ -9,7 +9,7 @@ Function Logger(p_name As String, p_enabled As Boolean) As Object
         Enable: x_Enable
         Log: x_Log
     }
-    
+
     return this
 
 End Function
@@ -23,9 +23,9 @@ End Sub
 Sub x_Log(p_message As String)
 
     If (m.enabled) Then
-    
+
         print m.name + " | " + p_message
-    
+
     End If
 
 End Sub
