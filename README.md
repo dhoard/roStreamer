@@ -4,4 +4,4 @@ roStreamer
 
 # Purpose
 
-Stream local content from a standard HTTP server using a JSON feed.
+Roku channel to stream media based from a standard HTTP server using a JSON feed
