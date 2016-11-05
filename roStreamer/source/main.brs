@@ -62,11 +62,11 @@ End Sub
 Sub InitializeTheme()
 
     theme = CreateObject("roAssociativeArray")
-    theme.OverhangLogoHD = "pkg:/locale/default/images/overhang_hd.png"
+    theme.OverhangLogoHD = "pkg:/images/Overhang_Background_HD.png"
     theme.OverhangSliceHD = ""
     theme.OverhangOffsetHD_X = "0"
     theme.OverhangOffsetHD_Y = "0"
-    theme.OverhangLogoSD = "pkg:/locale/default/images/overhang_sd.png"
+    theme.OverhangLogoSD = "pkg:/images/Overhang_Background_SD.png"
     theme.OverhangSliceSD = ""
     theme.OverhangOffsetSD_X = "0"
     theme.OverhangOffsetSD_Y = "0"
@@ -326,9 +326,15 @@ Sub PlayContent(p_contentMetaData As Object)
 
             Else If message.IsStatusMessage() Then
 
-                If (message = "end of stream") Then
+                If (message.GetMessage() = "end of stream") Then
 
                     videoScreen.Close()
+
+                    If p_contentMetaData.streamformat = "mp4" Then
+
+                        m.persistentCache.Remove(p_contentMetaData.streamurls[0])
+
+                    End If
 
                     return
 
